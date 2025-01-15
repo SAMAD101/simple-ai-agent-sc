@@ -17,8 +17,8 @@ entrypoint!(process_instruction);
 
 #[derive(Debug, Clone, BorshSerialize, BorshDeserialize)]
 enum AIAgentInstruction {
-    CreateAIAgent { args: [u8] },
-    IncreaseAIAgentValue { args: [u8] },
+    CreateAIAgent { args: [u8; 16] },
+    IncreaseAIAgentValue { args: [u8; 16] },
 }
 
 pub fn process_instruction(

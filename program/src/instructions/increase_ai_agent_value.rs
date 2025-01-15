@@ -12,7 +12,7 @@ use bitcoin::{self, Transaction, transaction::Version, absolute::LockTime};
 pub fn increase_ai_agent_value(
     _program_id: &Pubkey,
     accounts: &[AccountInfo],
-    value: u64,
+    args: &[u8],
 ) -> ProgramResult {
 
     Ok(())
