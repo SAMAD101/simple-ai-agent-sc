@@ -13,12 +13,15 @@ use borsh::{BorshDeserialize, BorshSerialize};
 
 use instructions::*;
 
+use std::mem;
+use crate::states::AIAgent;
+
 entrypoint!(process_instruction);
 
 #[derive(Debug, Clone, BorshSerialize, BorshDeserialize)]
 enum AIAgentInstruction {
-    CreateAIAgent { args: [u8; 16] },
-    IncreaseAIAgentValue { args: [u8; 16] },
+    CreateAIAgent { args: [u8; mem::size_of::<AIAgent>()] },
+    IncreaseAIAgentValue { args: [u8; mem::size_of::<AIAgent>()] },
 }
 
 pub fn process_instruction(
